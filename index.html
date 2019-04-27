@@ -32,6 +32,7 @@
                     if(test.readyState==4&&test.status==200){
                         var obj = JSON.parse(test.responseText);
                         console.log("parse");
+						console.log(obj);
                         for (var name in obj){
                             alert(obj[name].key);
                             console.log(obj[name].key);
