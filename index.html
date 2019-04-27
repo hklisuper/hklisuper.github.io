@@ -33,8 +33,13 @@
                         var obj = JSON.parse(test.responseText);
                         console.log("parse");
 						console.log(obj);
+						obj.forEach(oj => {
+							console.log(oj);
+							console.log(oj.name + "|");
+						});
                         for (var name in obj){
                             alert(name.key);
+
                             console.log(obj[name].key);
                         }
                     }
