@@ -86,7 +86,7 @@
                 test.send(null);
                 test.onload=function(){
                     if(test.readyState==4&&test.status==200){
-						document.getElementById("content").innerHTML=marked(xmlhttp.responseText);
+						document.getElementById("content").innerHTML=marked(test.responseText);
                     }
                 };
             
