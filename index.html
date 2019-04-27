@@ -9,7 +9,7 @@
             showJson();
             //window.location = "https://lyl52121.github.io/workspase/";
         }
-
+// { "name":"runoob", "alexa":10000, "site":"www.runoob.com" }
 
         function showJson(){
             console.log("show");
@@ -33,9 +33,9 @@
                         var obj = JSON.parse(test.responseText);
                         console.log(obj.rows);
 						console.log(obj);
-                        for (var name in obj){
-                            alert(name);
-							console.log(name.name);
+                        for (var o in obj){
+                            alert(o);
+							console.log(o.name);
                         }
                     }
                 };
