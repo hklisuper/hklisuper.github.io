@@ -31,14 +31,14 @@
                     console.log("onreadystatechange");
                     if(test.readyState==4&&test.status==200){
                         var obj = JSON.parse(test.responseText);
-                        console.log("parse");
+                        console.log(obj.rows);
 						console.log(obj);
-						var obs = JSON.parse(obj);
+
 						alert(obs.rows);
                         for (var name in obj){
-                            alert(name.key);
+                            alert(name);
 
-                            console.log(obj[name].key);
+                           console.log(name);
                         }
                     }
                 };
