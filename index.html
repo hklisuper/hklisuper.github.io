@@ -32,6 +32,9 @@
                     if(test.readyState==4&&test.status==200){
 						console.log(test.responseText);
                         var obj = JSON.parse(test.responseText);
+						console.log(obj.person[0],name);
+						console.log(obj.person[0].sex);
+						console.log("-------------");
                         console.log(obj.rows);
 						console.log(obj);
                         for (var o in obj){
