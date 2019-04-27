@@ -12,7 +12,7 @@
         window.onload = function redirectPage() {
             showJson();
 			//CreateJSON();
-			
+			showMarkdown();
             //window.location = "https://lyl52121.github.io/workspase/";
         }
 // { "name":"runoob", "alexa":10000, "site":"www.runoob.com" }
@@ -72,33 +72,25 @@
 
 		function showMarkdown()
 		{
-			// 创建XMLHttpRequest对象
-			var xmlhttp;
-			if (window.XMLHttpRequest)
-			{
-				// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-				xmlhttp=new XMLHttpRequest();
-			}
-			else
-			{
-				// IE6, IE5 浏览器执行代码
-				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-			}
-			
-			// 向服务器发送请求，获取你需要的Markdown文档
-			xmlhttp.open("GET","info.md",true);
-			xmlhttp.send();
-			
-			// 得到服务器响应后，对得到的Markdown文档进行解析
-			xmlhttp.onreadystatechange=function()
-			{
-				if (xmlhttp.readyState==4 && xmlhttp.status==200)
-				{
-					// 这里调用了marked框架中的marked函数实现Markdown2HTML的解析
-					document.getElementById("content").innerHTML=marked(xmlhttp.responseText);
-				}
-			}
-			
+			console.log("showMarkdown");		
+			var test;
+            if(window.XMLHttpRequest){
+                test = new XMLHttpRequest();
+            }else if(window.ActiveXObject){
+                test = new window.ActiveXObject();
+            }else{
+                alert("请升级至最新版本的浏览器");
+            }
+            if(test !=null){
+                test.open("GET","info.md");
+                test.send(null);
+                test.onload=function(){
+                    if(test.readyState==4&&test.status==200){
+						document.getElementById("content").innerHTML=marked(xmlhttp.responseText);
+                    }
+                };
+            
+            }
 			
 			
     	}
