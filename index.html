@@ -1,9 +1,47 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<title>hklisuper</title>
-</head>
-<body>
-hello 
-</body>
+    <head>
+        <title></title>
+    </head>
+    <body>
+    </body>
+    <script>
+        window.onload = function redirectPage() {
+            showJson();
+            //window.location = "https://lyl52121.github.io/workspase/";
+        }
+
+
+        function showJson(){
+            console.log("show");
+            var test;
+            if(window.XMLHttpRequest){
+                test = new XMLHttpRequest();
+            }else if(window.ActiveXObject){
+                test = new window.ActiveXObject();
+            }else{
+                alert("请升级至最新版本的浏览器");
+            }
+            console.log("parse");
+            if(test !=null){
+                console.log("parse");
+                test.open("GET","index.json");
+                console.log("GET");
+                test.send(null);
+                test.onload=function(){
+                    console.log("onreadystatechange");
+                    if(test.readyState==4&&test.status==200){
+                        var obj = JSON.parse(test.responseText);
+                        console.log("parse");
+                        for (var name in obj){
+                            alert(obj[name].key);
+                            console.log(obj[name].key);
+                        }
+                    }
+                };
+            
+            }
+        }
+
+
+    </script>
 </html>
